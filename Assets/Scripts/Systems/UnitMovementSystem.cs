@@ -3,7 +3,6 @@ using Unity.Entities;
 using Unity.Mathematics;
 using Unity.Physics;
 using Unity.Transforms;
-using UnityEditor;
 
 public partial struct UnitMovementSystem : ISystem
 {
@@ -23,25 +22,40 @@ public partial struct UnitMovementSystem : ISystem
 public partial struct UnitMovementJob : IJobEntity
 {
     public float deltaTime;
+
     public void Execute(ref LocalTransform localTransform, in UnitStatsComponent unitStats, ref PhysicsVelocity physicsVelocity)
     {
-        float3 targetPosition = /*MouseWorldPosition.Instance.GetPosition();*/ unitStats.targetPosition;
-        float3 moveDirection = targetPosition - localTransform.Position;
+        float3 pos = localTransform.Position;
+        float3 target = unitStats.targetPosition;
 
-        float reachedTargetDistanceSq = 2f;
-        if (math.lengthsq(moveDirection) < reachedTargetDistanceSq)
+        // XZ movement only
+        float3 toTarget = target - pos;
+        toTarget.y = 0f;
+
+        float reachedTargetDistanceSq = 2f; // tune
+        if (math.lengthsq(toTarget) < reachedTargetDistanceSq)
         {
-            physicsVelocity.Linear = float3.zero;
+            physicsVelocity.Linear.x = 0f;
+            physicsVelocity.Linear.z = 0f;
+
             physicsVelocity.Angular = float3.zero;
             return;
         }
 
-        moveDirection = math.normalize(moveDirection);
+        float3 moveDir = math.normalize(toTarget);
 
-        localTransform.Rotation = math.slerp(localTransform.Rotation, quaternion.LookRotation(moveDirection, math.up()), deltaTime * unitStats.RotationSpeed);
+        // Rotate to face movement direction (safe because we keep it purely yaw)
+        localTransform.Rotation = math.slerp(
+            localTransform.Rotation,
+            quaternion.LookRotation(moveDir, math.up()),
+            deltaTime * unitStats.RotationSpeed
+        );
 
-        physicsVelocity.Linear = moveDirection * unitStats.MoveSpeed;
+        // Drive only horizontal velocity; preserve vertical velocity from physics
+        physicsVelocity.Linear.x = moveDir.x * unitStats.MoveSpeed;
+        physicsVelocity.Linear.z = moveDir.z * unitStats.MoveSpeed;
+        // physicsVelocity.Linear.y is left untouched on purpose
+
         physicsVelocity.Angular = float3.zero;
     }
-
 }
