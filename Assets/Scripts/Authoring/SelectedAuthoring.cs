@@ -21,6 +21,7 @@ public class SelectedAuthoring : MonoBehaviour
     }
 }
 
+[System.Serializable]
 public struct Selected : IComponentData, IEnableableComponent
 {
     public Entity visualEntity;

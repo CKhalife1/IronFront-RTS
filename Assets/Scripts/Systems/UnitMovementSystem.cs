@@ -1,9 +1,11 @@
-using Unity.Burst;
+﻿using Unity.Burst;
 using Unity.Entities;
 using Unity.Mathematics;
 using Unity.Physics;
 using Unity.Transforms;
 
+[UpdateInGroup(typeof(FixedStepSimulationSystemGroup))]
+[UpdateBefore(typeof(Unity.Physics.Systems.PhysicsSystemGroup))]
 public partial struct UnitMovementSystem : ISystem
 {
     [BurstCompile]
@@ -32,30 +34,25 @@ public partial struct UnitMovementJob : IJobEntity
         float3 toTarget = target - pos;
         toTarget.y = 0f;
 
-        float reachedTargetDistanceSq = 2f; // tune
-        if (math.lengthsq(toTarget) < reachedTargetDistanceSq)
+        if (math.lengthsq(toTarget) < unitStats.StopDistance)
         {
             physicsVelocity.Linear.x = 0f;
             physicsVelocity.Linear.z = 0f;
-
             physicsVelocity.Angular = float3.zero;
             return;
         }
 
         float3 moveDir = math.normalize(toTarget);
 
-        // Rotate to face movement direction (safe because we keep it purely yaw)
-        localTransform.Rotation = math.slerp(
-            localTransform.Rotation,
-            quaternion.LookRotation(moveDir, math.up()),
-            deltaTime * unitStats.RotationSpeed
-        );
+                if (math.lengthsq(moveDir) > 0.0001f)
+        {
+            float yaw = math.atan2(moveDir.x, moveDir.z); // radians
+            localTransform.Rotation = quaternion.RotateY(yaw);
+        }
 
         // Drive only horizontal velocity; preserve vertical velocity from physics
         physicsVelocity.Linear.x = moveDir.x * unitStats.MoveSpeed;
         physicsVelocity.Linear.z = moveDir.z * unitStats.MoveSpeed;
-        // physicsVelocity.Linear.y is left untouched on purpose
-
         physicsVelocity.Angular = float3.zero;
     }
 }

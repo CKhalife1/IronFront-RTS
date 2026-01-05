@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &1000543560844957496
+--- !u!1001 &9174586294811065766
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -50,23 +50,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 90355703812807892, guid: d53efdaf688656d4da1f4e438d5582c3, type: 3}
       propertyPath: m_Name
-      value: Conscript
+      value: GI
       objectReference: {fileID: 0}
+    - target: {fileID: 3063157400952003435, guid: d53efdaf688656d4da1f4e438d5582c3, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: b9057d5a436ead44e8e8f0f663401b93, type: 2}
     - target: {fileID: 4359332788153047285, guid: d53efdaf688656d4da1f4e438d5582c3, type: 3}
       propertyPath: faction
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4999642865349379139, guid: d53efdaf688656d4da1f4e438d5582c3, type: 3}
       propertyPath: range
-      value: 7
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4999642865349379139, guid: d53efdaf688656d4da1f4e438d5582c3, type: 3}
       propertyPath: targetFaction
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7157151623589850718, guid: d53efdaf688656d4da1f4e438d5582c3, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -74,22 +78,22 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 90355703812807892, guid: d53efdaf688656d4da1f4e438d5582c3, type: 3}
       insertIndex: -1
-      addedObject: {fileID: -6818854989995461244}
+      addedObject: {fileID: 697869072141564390}
   m_SourcePrefab: {fileID: 100100000, guid: d53efdaf688656d4da1f4e438d5582c3, type: 3}
---- !u!1 &910755279422262252 stripped
+--- !u!1 &9084798013356908914 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 90355703812807892, guid: d53efdaf688656d4da1f4e438d5582c3, type: 3}
-  m_PrefabInstance: {fileID: 1000543560844957496}
+  m_PrefabInstance: {fileID: 9174586294811065766}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &-6818854989995461244
+--- !u!114 &697869072141564390
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 910755279422262252}
+  m_GameObject: {fileID: 9084798013356908914}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ce21dce41164b748b35b66a46ac19cc, type: 3}
+  m_Script: {fileID: 11500000, guid: 805f38042298e954a801bd5650ad53a5, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::IronAllianceAuthoring
+  m_EditorClassIdentifier: Assembly-CSharp::HorizonCollectiveAuthoring

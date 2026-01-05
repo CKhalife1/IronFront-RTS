@@ -13,4 +13,5 @@ public class ConscriptAuthoring : MonoBehaviour
     }
 }
 
+[System.Serializable]
 public struct ConscriptTag : IComponentData { }

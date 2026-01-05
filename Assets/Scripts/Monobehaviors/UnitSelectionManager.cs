@@ -13,7 +13,7 @@ public class UnitSelectionManager : MonoBehaviour
     public event EventHandler OnSelectionAreaStart;
     public event EventHandler OnSelectionAreaEnd;
 
-    public LayerMask unitsLayer;
+    //public LayerMask unitsLayer;
 
     private Vector2 selectionStartMousePosition;
 
@@ -94,7 +94,7 @@ public class UnitSelectionManager : MonoBehaviour
                     Filter = new CollisionFilter
                     {
                         BelongsTo = ~0u,
-                        CollidesWith = 1u << unitsLayer,
+                        CollidesWith = 1u << GameAssets.UnitsLayer/*unitsLayer*/,
                         GroupIndex = 0
                     }
                 };
