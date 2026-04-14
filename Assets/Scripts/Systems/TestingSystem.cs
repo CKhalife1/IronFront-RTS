@@ -1,7 +1,6 @@
 using Unity.Burst;
 using Unity.Entities;
-using Unity.Physics;
-using Unity.Transforms;
+using UnityEngine;
 
 partial struct TestingSystem : ISystem
 {
@@ -10,10 +9,13 @@ partial struct TestingSystem : ISystem
     {
         int unitCount = 0;
 
-        foreach (var (localTransform, unitStats, physicsVelocity)
-            in SystemAPI.Query<RefRW<LocalTransform>, RefRO<UnitStatsComponent>, RefRW<PhysicsVelocity>>().WithDisabled<Selected>())
-        {
-            unitCount++;
-        }
+        foreach (
+            RefRW<Friendly> friendly
+            in SystemAPI.Query<
+            RefRW<Friendly>>())  {
+                unitCount++;
+            }
+
+            Debug.Log("Friendly count: " + unitCount);
     }
 }

@@ -78,14 +78,14 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 90355703812807892, guid: d53efdaf688656d4da1f4e438d5582c3, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 697869072141564390}
+      addedObject: {fileID: 726094817905471980}
   m_SourcePrefab: {fileID: 100100000, guid: d53efdaf688656d4da1f4e438d5582c3, type: 3}
 --- !u!1 &9084798013356908914 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 90355703812807892, guid: d53efdaf688656d4da1f4e438d5582c3, type: 3}
   m_PrefabInstance: {fileID: 9174586294811065766}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &697869072141564390
+--- !u!114 &726094817905471980
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -96,4 +96,4 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 805f38042298e954a801bd5650ad53a5, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::HorizonCollectiveAuthoring
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyAuthoring

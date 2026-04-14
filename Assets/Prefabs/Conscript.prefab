@@ -74,14 +74,14 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 90355703812807892, guid: d53efdaf688656d4da1f4e438d5582c3, type: 3}
       insertIndex: -1
-      addedObject: {fileID: -6818854989995461244}
+      addedObject: {fileID: 1356935329809340267}
   m_SourcePrefab: {fileID: 100100000, guid: d53efdaf688656d4da1f4e438d5582c3, type: 3}
 --- !u!1 &910755279422262252 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 90355703812807892, guid: d53efdaf688656d4da1f4e438d5582c3, type: 3}
   m_PrefabInstance: {fileID: 1000543560844957496}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &-6818854989995461244
+--- !u!114 &1356935329809340267
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -92,4 +92,4 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0ce21dce41164b748b35b66a46ac19cc, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::IronAllianceAuthoring
+  m_EditorClassIdentifier: Assembly-CSharp::FriendlyAuthoring
