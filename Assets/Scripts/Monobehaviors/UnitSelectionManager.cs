@@ -5,6 +5,7 @@ using Unity.Mathematics;
 using Unity.Physics;
 using Unity.Transforms;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class UnitSelectionManager : MonoBehaviour
 {
@@ -31,14 +32,18 @@ public class UnitSelectionManager : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        bool leftMousePressed = Mouse.current.leftButton.wasPressedThisFrame;
+        bool leftMouseReleased = Mouse.current.leftButton.wasReleasedThisFrame;
+        bool rightMousePressed = Mouse.current.rightButton.wasPressedThisFrame;
+
+        if (leftMousePressed)
         {
-            selectionStartMousePosition = Input.mousePosition;
+            selectionStartMousePosition = Mouse.current.position.ReadValue();
             OnSelectionAreaStart?.Invoke(this, EventArgs.Empty);
         }
-        if (Input.GetMouseButtonUp(0))
+        if (leftMouseReleased)
         {
-            Vector2 selectionEndMousePosition = Input.mousePosition;
+            Vector2 selectionEndMousePosition = Mouse.current.position.ReadValue();
 
             EntityManager entityManager = World.DefaultGameObjectInjectionWorld.EntityManager;
             EntityQuery entityQuery = new EntityQueryBuilder(Allocator.Temp).WithAll<Selected>().Build(entityManager);
@@ -86,7 +91,7 @@ public class UnitSelectionManager : MonoBehaviour
                 entityQuery = entityManager.CreateEntityQuery(typeof(PhysicsWorldSingleton));
                 PhysicsWorldSingleton physicsWorldSingleton = entityQuery.GetSingleton<PhysicsWorldSingleton>();
                 CollisionWorld collisionWorld = physicsWorldSingleton.CollisionWorld;
-                UnityEngine.Ray cameraRay = Camera.main.ScreenPointToRay(Input.mousePosition);
+                UnityEngine.Ray cameraRay = Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue());
                 RaycastInput raycastInput = new RaycastInput
                 {
                     Start = cameraRay.GetPoint(0f),
@@ -113,7 +118,7 @@ public class UnitSelectionManager : MonoBehaviour
             OnSelectionAreaEnd?.Invoke(this, EventArgs.Empty);
         }
 
-        if (Input.GetMouseButtonDown(1))
+        if (rightMousePressed)
         {
             Vector3 mouseWorldPosition = MouseWorldPosition.Instance.GetPosition();
 
@@ -136,7 +141,7 @@ public class UnitSelectionManager : MonoBehaviour
 
     public Rect GetSelectionAreaRect()
     {
-        Vector2 selectionEndMousePosition = Input.mousePosition;
+        Vector2 selectionEndMousePosition = Mouse.current.position.ReadValue();
 
         Vector2 lowerLeftCorner = new Vector2
         (
