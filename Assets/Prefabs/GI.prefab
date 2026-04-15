@@ -79,6 +79,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 90355703812807892, guid: d53efdaf688656d4da1f4e438d5582c3, type: 3}
       insertIndex: -1
       addedObject: {fileID: 726094817905471980}
+    - targetCorrespondingSourceObject: {fileID: 90355703812807892, guid: d53efdaf688656d4da1f4e438d5582c3, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 838518475065375343}
   m_SourcePrefab: {fileID: 100100000, guid: d53efdaf688656d4da1f4e438d5582c3, type: 3}
 --- !u!1 &9084798013356908914 stripped
 GameObject:
@@ -97,3 +100,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 805f38042298e954a801bd5650ad53a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyAuthoring
+--- !u!114 &838518475065375343
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9084798013356908914}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4973c72b01a0e742917f154d360d1d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ShootAttackAuthoring
+  timerMax: 0.2

@@ -56,5 +56,8 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "IronFront-RTS.sln"
+    "dotnet.defaultSolution": "IronFront-RTS.sln",
+    "dotrush.roslyn.projectOrSolutionFiles": [
+        "c:\\Users\\Charlie\\Desktop\\IronFront-RTS\\IronFront-RTS.sln"
+    ]
 }

@@ -75,6 +75,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 90355703812807892, guid: d53efdaf688656d4da1f4e438d5582c3, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1356935329809340267}
+    - targetCorrespondingSourceObject: {fileID: 90355703812807892, guid: d53efdaf688656d4da1f4e438d5582c3, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5997635112756400405}
   m_SourcePrefab: {fileID: 100100000, guid: d53efdaf688656d4da1f4e438d5582c3, type: 3}
 --- !u!1 &910755279422262252 stripped
 GameObject:
@@ -93,3 +96,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ce21dce41164b748b35b66a46ac19cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FriendlyAuthoring
+--- !u!114 &5997635112756400405
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 910755279422262252}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4973c72b01a0e742917f154d360d1d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ShootAttackAuthoring
+  timerMax: 0.2

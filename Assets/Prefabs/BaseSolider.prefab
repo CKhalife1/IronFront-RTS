@@ -166,7 +166,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FindTargetAuthoring
   range: 0
   targetFaction: 0
-  timerMax: 3
+  timerMax: 0.2
 --- !u!114 &-4661407569020616638
 MonoBehaviour:
   m_ObjectHideFlags: 0
