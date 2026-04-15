@@ -57,6 +57,15 @@
         "Temp/": true
     },
     "dotnet.defaultSolution": "IronFront-RTS.sln",
+    "dotnetAcquisitionExtension.existingDotnetPath": [
+        {
+            "extensionId": "ms-dotnettools.csharp",
+            "path": "C:\\Program Files\\dotnet\\dotnet.exe"
+        }
+    ],
+    "omnisharp.dotNetCliPaths": [
+        "C:\\Program Files\\dotnet\\dotnet.exe"
+    ],
     "dotrush.roslyn.projectOrSolutionFiles": [
         "c:\\Users\\Charlie\\Desktop\\IronFront-RTS\\IronFront-RTS.sln"
     ]
