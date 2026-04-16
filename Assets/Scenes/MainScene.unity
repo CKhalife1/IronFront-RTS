@@ -483,8 +483,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d005eee712b887741b93691c92115f2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectionAreaRectTransform: {fileID: 169370407}
-  canvas: {fileID: 444190080}
 --- !u!1 &432432459
 GameObject:
   m_ObjectHideFlags: 0

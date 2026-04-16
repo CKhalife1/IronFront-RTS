@@ -2,8 +2,14 @@ using UnityEngine;
 
 public class UnitSelectionManagerUI : MonoBehaviour
 {
-    [SerializeField] private RectTransform selectionAreaRectTransform;
-    [SerializeField] private Canvas canvas;
+    private RectTransform selectionAreaRectTransform;
+    private Canvas canvas;
+
+    private void Awake()
+    {
+        selectionAreaRectTransform = transform.GetChild(0).GetComponent<RectTransform>();
+        canvas = GetComponentInParent<Canvas>();
+    }
 
     private void Start()
     {
