@@ -18,10 +18,11 @@ public class BulletAuthoring : MonoBehaviour
             });
         }
     }
+}
+
 
     public struct Bullet : IComponentData
     {
         public float speed;
         public int damageAmount;
     }
-}
