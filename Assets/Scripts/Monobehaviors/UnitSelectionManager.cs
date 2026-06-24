@@ -123,19 +123,20 @@ public class UnitSelectionManager : MonoBehaviour
             Vector3 mouseWorldPosition = MouseWorldPosition.Instance.GetPosition();
 
             EntityManager entityManager = World.DefaultGameObjectInjectionWorld.EntityManager;
-            EntityQuery entityQuery = new EntityQueryBuilder(Allocator.Temp).WithAll<UnitStatsComponent, Selected>().Build(entityManager);
+            EntityQuery entityQuery = new EntityQueryBuilder(Allocator.Temp).WithAll<Selected>().WithPresent<MoveOverride>().Build(entityManager);
 
             NativeArray<Entity> entityArray = entityQuery.ToEntityArray(Allocator.Temp);
-            NativeArray<UnitStatsComponent> unitStatsArray = entityQuery.ToComponentDataArray<UnitStatsComponent>(Allocator.Temp);
+            NativeArray<MoveOverride> moveOverrideArray = entityQuery.ToComponentDataArray<MoveOverride>(Allocator.Temp);
             NativeArray<float3> movePositionArray = GenerateMovePositionArray(mouseWorldPosition, entityArray.Length);
-            for (int i = 0; i < unitStatsArray.Length; i++)
+            for (int i = 0; i < moveOverrideArray.Length; i++)
             {
-                UnitStatsComponent unitStats = unitStatsArray[i];
-                unitStats.targetPosition = movePositionArray[i];
-                unitStatsArray[i] = unitStats;
+                MoveOverride moveOverride = moveOverrideArray[i];
+                moveOverride.targetPosition = movePositionArray[i];
+                moveOverrideArray[i] = moveOverride;
+                entityManager.SetComponentEnabled<MoveOverride>(entityArray[i], true);
             }
 
-            entityQuery.CopyFromComponentDataArray(unitStatsArray);
+            entityQuery.CopyFromComponentDataArray(moveOverrideArray);
         }
     }
 

@@ -19,6 +19,7 @@ GameObject:
   - component: {fileID: -4661407569020616638}
   - component: {fileID: 4580980352399745551}
   - component: {fileID: 7555364287259667404}
+  - component: {fileID: 4562205603034982066}
   m_Layer: 6
   m_Name: BaseSolider
   m_TagString: Untagged
@@ -209,6 +210,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c16549610bfe4458aa9389201d072bb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.Entities.Hybrid::Unity.Entities.Hybrid.Baking.LinkedEntityGroupAuthoring
+--- !u!114 &4562205603034982066
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 90355703812807892}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdb5d245ca34f96479565de1e17f170f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MoveOverrideAuthoring
 --- !u!1 &1427248985044180973
 GameObject:
   m_ObjectHideFlags: 0

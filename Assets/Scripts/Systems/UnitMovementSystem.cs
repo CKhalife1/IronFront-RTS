@@ -34,7 +34,7 @@ public partial struct UnitMovementJob : IJobEntity
         float3 toTarget = target - pos;
         toTarget.y = 0f;
 
-        if (math.lengthsq(toTarget) < unitStats.StopDistance)
+        if (math.lengthsq(toTarget) < math.square(unitStats.StopDistance))
         {
             physicsVelocity.Linear.x = 0f;
             physicsVelocity.Linear.z = 0f;
