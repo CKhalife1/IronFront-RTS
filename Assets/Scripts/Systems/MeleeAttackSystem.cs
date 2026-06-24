@@ -30,15 +30,25 @@ partial struct MeleeAttackSystem : ISystem
                 continue;
             }
 
+            if (!SystemAPI.Exists(target.ValueRO.targetEntity) ||
+                !SystemAPI.HasComponent<LocalTransform>(target.ValueRO.targetEntity) ||
+                !SystemAPI.HasComponent<Health>(target.ValueRO.targetEntity))
+            {
+                continue;
+            }
+
             LocalTransform targetLocalTransform = SystemAPI.GetComponent<LocalTransform>(target.ValueRO.targetEntity);
-            float meleeAttackDistanceSq = 2f;
-            bool isCloseEnoughToAttack = math.distancesq(localTransform.ValueRO.Position, targetLocalTransform.Position) > meleeAttackDistanceSq;
+            float meleeAttackDistance = 2f;
+            float meleeAttackDistanceSq = math.square(meleeAttackDistance);
+            bool isCloseEnoughToAttack =
+                math.distancesq(localTransform.ValueRO.Position, targetLocalTransform.Position)
+                <= meleeAttackDistanceSq;
 
             bool isTouchingTarget = false;
             if (!isCloseEnoughToAttack)
             {
-                float3 dirToTarget = targetLocalTransform.Position - localTransform.ValueRO.Position;
-                dirToTarget = math.normalize(dirToTarget);
+                float3 dirToTarget = math.normalizesafe(
+                    targetLocalTransform.Position - localTransform.ValueRO.Position);
                 float distanceExtraToTestRaycast = .4f;
                 RaycastInput raycastInput = new RaycastInput
                 {
